@@ -3,7 +3,7 @@ const app = express()
 require('dotenv').config()
 const cors = require('cors')
 const bodyparser = require('body-parser')
-const port = process.env.Port
+const port = process.env.PORT || 4000
 
 const Authrouter = require('./Routes/AuthRouter')
 const Webhook = require('./Controllers/WebhookController')
