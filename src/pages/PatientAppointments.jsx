@@ -15,7 +15,7 @@ const PatientAppointments = () => {
                 headers : { 'Authorization': localStorage.getItem('token')}
             }
         try{
-            let response = await fetch("http://localhost:4000/auth/patientappointments" , headers)
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/patientappointments` , headers)
             let data = await response.json()
             if(response.ok){
                 setAppointmentsList(data)
@@ -33,7 +33,7 @@ const PatientAppointments = () => {
 
     const updateAppointmentStatus = async (appointmentId, status) => {
             try {
-                let response = await fetch(`http://localhost:4000/auth/appointment/${appointmentId}`, {
+                let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/appointment/${appointmentId}`, {
                     method: "PATCH",
                     headers: {
                         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const PatientAppointments = () => {
         const makePayment = async(appointmentId)=>{
           try{
             let response = await fetch(`
-              http://localhost:4000/auth/create-checkout-session/${appointmentId}` , {
+              ${import.meta.env.VITE_API_URL}/auth/create-checkout-session/${appointmentId}` , {
               method : "POST",
               headers: {
                 Authorization: localStorage.getItem("token"),

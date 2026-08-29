@@ -33,7 +33,7 @@ const PatientDashboard = () => {
         }
         try {
             const limit = 6
-            let response = await fetch(`http://localhost:4000/auth/doctorslist?page=${page}&limit=${limit}`, headers)
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/doctorslist?page=${page}&limit=${limit}`, headers)
             if (response.status === 403) {
                 localStorage.removeItem("token")
                 localStorage.removeItem("loggedInUser")
@@ -69,7 +69,7 @@ const PatientDashboard = () => {
             return handleError("Please enter a specialization")
         }
         try {
-            const response = await fetch(`http://localhost:4000/auth/searchev?search=${search}&page=1&limit=6`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/searchev?search=${search}&page=1&limit=6`, {
                 headers: {
                     Authorization: localStorage.getItem("token")
                 }

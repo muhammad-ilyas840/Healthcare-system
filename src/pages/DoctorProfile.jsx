@@ -14,7 +14,7 @@ const DoctorProfile = () => {
         try {
 
             const response = await fetch(
-                "http://localhost:4000/auth/doctorprofile",
+                `${import.meta.env.VITE_API_URL}/auth/doctorprofile`,
                 {
                     headers: {
                         Authorization: localStorage.getItem("token")

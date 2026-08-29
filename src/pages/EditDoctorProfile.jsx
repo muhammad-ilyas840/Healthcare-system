@@ -24,7 +24,7 @@ const EditDoctorProfile = () => {
         try {
 
             const response = await fetch(
-                "http://localhost:4000/auth/doctorprofile",
+                `${import.meta.env.VITE_API_URL}/auth/doctorprofile`,
                 {
                     headers: {
                         Authorization: localStorage.getItem("token")
@@ -98,7 +98,7 @@ const EditDoctorProfile = () => {
         try {
 
             const response = await fetch(
-                "http://localhost:4000/auth/updatedoctor",
+                `${import.meta.env.VITE_API_URL}/auth/updatedoctor`,
                 {
                     method: "PATCH",
 

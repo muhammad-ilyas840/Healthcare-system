@@ -42,7 +42,7 @@ export default function PatientSignup() {
   }
 
     try{
-      const data = await fetch('http://localhost:4000/auth/patient' , {
+      const data = await fetch(`${import.meta.env.VITE_API_URL}/auth/patient` , {
         method : "POST",
         headers : {'Content-Type' : 'application/json'},
         body : JSON.stringify(patientData)

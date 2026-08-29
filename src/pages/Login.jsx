@@ -19,7 +19,7 @@ export default function Login() {
             return handleError("Email and Password are required")
         }
         try{
-            let response = await fetch('http://localhost:4000/auth/login' , {
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login` , {
                 method : "POST",
                 headers : {'Content-Type' : 'application/json'},
                 body : JSON.stringify(loginInfo)

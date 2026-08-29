@@ -12,7 +12,7 @@ const DoctorAppointments = () => {
             headers: { 'Authorization': localStorage.getItem('token') }
         }
         try {
-            let response = await fetch("http://localhost:4000/auth/doctorappointments", headers)
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/doctorappointments`, headers)
             if (response.status === 403) {
                 localStorage.removeItem('token')
                 localStorage.removeItem("loggedInUser")
@@ -36,7 +36,7 @@ const DoctorAppointments = () => {
 
     const updateAppointmentStatus = async (appointmentId, status) => {
         try {
-            let response = await fetch(`http://localhost:4000/auth/appointment/${appointmentId}`, {
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/appointment/${appointmentId}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',

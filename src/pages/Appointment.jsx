@@ -18,7 +18,7 @@ const Appointment = () => {
             return handleError("Every field must be filled")
         }
         try {
-            let response = await fetch("http://localhost:4000/auth/appointment", {
+            let response = await fetch(`${import.meta.env.VITE_API_URL}/auth/appointment`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

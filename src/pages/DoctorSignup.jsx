@@ -65,7 +65,7 @@ export default function DoctorSignup() {
     try {
 
       const data = await fetch(
-        'http://localhost:4000/auth/doctor',
+        `${import.meta.env.VITE_API_URL}/auth/doctor`,
         {
           method: "POST",
 

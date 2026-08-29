@@ -43,7 +43,7 @@ const SubmitReview = async (e) => {
     try {
 
         const response = await fetch(
-            "http://localhost:4000/auth/submitreview",
+            `${import.meta.env.VITE_API_URL}/auth/submitreview`,
             {
 
                 method: "POST",
