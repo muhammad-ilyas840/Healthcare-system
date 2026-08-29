@@ -26,6 +26,4 @@ app.get('/' , (req , res)=>{
 
 app.use('/auth' , Authrouter)
 
-app.listen(port , ()=>{
-    console.log(`Server running on ${port}`)
-})
+module.exports = app
