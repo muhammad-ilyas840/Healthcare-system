@@ -8,7 +8,13 @@ const port = process.env.PORT || 4000
 const Authrouter = require('./Routes/AuthRouter')
 const Webhook = require('./Controllers/WebhookController')
 
-app.use(cors())
+app.use(cors({
+    origin: "https://healthcare-system-sepia.vercel.app",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}))
+
+app.options("*", cors())
 
 app.post('/auth/webhook' ,
     express.raw({type : "application/json"}),
