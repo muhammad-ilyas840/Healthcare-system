@@ -14,8 +14,6 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
-app.options("*", cors())
-
 app.post('/auth/webhook' ,
     express.raw({type : "application/json"}),
     Webhook
