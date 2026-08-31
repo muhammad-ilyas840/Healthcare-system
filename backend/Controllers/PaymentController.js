@@ -51,8 +51,8 @@ const CreateCheckoutSession = async (req, res) => {
                 appointmentId: appointment._id.toString(),
                 patientId: appointment.Patient._id.toString()
             },
-            success_url: "http://localhost:5173/payment-success",
-            cancel_url: "http://localhost:5173/payment-cancel",
+            success_url: "https://healthcaresystemfrontend.vercel.app/payment-success",
+            cancel_url: "https://healthcaresystemfrontend.vercel.app/payment-cancel",
         })
         console.log(session.url);
         console.log(session.metadata);
