@@ -9,7 +9,7 @@ const Authrouter = require('./Routes/AuthRouter')
 const Webhook = require('./Controllers/WebhookController')
 
 app.use(cors({
-    origin: "https://healthcare-system-sepia.vercel.app",
+    origin: "https://healthcaresystemfrontend.vercel.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
