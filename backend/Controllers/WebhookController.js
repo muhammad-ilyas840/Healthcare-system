@@ -56,6 +56,7 @@
 const AppointmentModel = require("../Models/Appointments")
 const PaymentModel = require("../Models/Payment")
 const Stripe = require("stripe")
+const dbConnect = require("../Models/db")
 
 const stripe = new Stripe(process.env.Stripe_secret_key)
 
@@ -87,6 +88,8 @@ const Webhook = async (req, res) => {
     if (event.type === "checkout.session.completed") {
 
         try {
+
+            await dbConnect()
 
             const session = event.data.object
 
