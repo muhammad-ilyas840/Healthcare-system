@@ -22,7 +22,7 @@ app.post('/auth/webhook' ,
 
 app.use(bodyparser.json())
 
-require('./Models/db')
+// require('./Models/db') this is just for local production
 
 app.get('/' , (req , res)=>{
     res.send("<h1>Good<h1/>")

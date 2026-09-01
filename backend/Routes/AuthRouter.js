@@ -1,3 +1,5 @@
+const dbConnect = require("../Models/db");
+
 const { PatientSignup, DoctorSignup, Login, updateAppointmentStatus, UpdateDoctorProfile, 
     UpdatePatientProfile, Reviews, SearchDoctors, 
     PatientUpdateAppointment} = require('../Controllers/AuthContoller')
@@ -21,6 +23,19 @@ const { DoctorsList , PatientAppointments , DoctorAppointments, AppointmentsByDa
 const Appointments = require('../Controllers/BookAppointments')
 
 const router = require('express').Router()
+
+router.use(async (req, res, next) => {
+    try {
+        await dbConnect();
+        next();
+    } catch (error) {
+        console.error("Database connection failed:", error);
+
+        res.status(500).json({
+            message: "Database connection failed"
+        });
+    }
+});
 
 router.post('/patient' , PatientValidation , PatientSignup)
 
