@@ -1,3 +1,4 @@
+
 import express from 'express'
 import 'dotenv/config'
 import cors from 'cors'
@@ -20,6 +21,16 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+// Connect to MongoDB before handling authentication and payment requests.
+app.use('/auth', async (_req, _res, next) => {
+    try {
+        await dbConnect()
+        next()
+    } catch (err) {
+        next(err)
+    }
+});
+
 app.post(
     '/auth/webhook',
     express.raw({ type: "application/json" }),
@@ -28,14 +39,13 @@ app.post(
 
 app.use(bodyparser.json());
 
-app.get('/', (req , res) => {
+app.get('/', (req, res) => {
     res.send("<h1>Good</h1>");
 });
 
 app.use('/auth', Authrouter);
 
-// Start the server when this file is run directly.
-
+// Start the server locally.
 if (require.main === module) {
     dbConnect()
         .then(() => {
@@ -43,10 +53,13 @@ if (require.main === module) {
                 console.log(`Server running on port ${port}`);
             });
         })
-        .catch((err : unknown) => {
-            console.error("Failed to connect to MongoDB:", err instanceof Error ? err.message : String(err) );
+        .catch((err: unknown) => {
+            console.error(
+                "Failed to connect to MongoDB:",
+                err instanceof Error ? err.message : String(err)
+            );
             process.exit(1);
         });
 }
 
-export default app;
+export = app
