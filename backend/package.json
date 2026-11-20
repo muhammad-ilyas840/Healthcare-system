@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "start": "node index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-} ,
+    "start": "node dist/index.js",
+    "dev": "nodemon",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,5 +25,14 @@
     "mongoose": "^9.7.3",
     "nodemon": "^3.1.14",
     "stripe": "^22.4.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/body-parser": "^1.19.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
   }
 }

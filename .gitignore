@@ -7,6 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# TypeScript
+*.tsbuildinfo
+
+# Optional environment files
+.env.*
+!.env.example
+
 # Dependencies
 node_modules/
 
