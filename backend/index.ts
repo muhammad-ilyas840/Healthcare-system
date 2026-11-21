@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://healthcaresystemfrontend.vercel.app"
+        "https://healthcare-system-frontend-ts.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
